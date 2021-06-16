@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './app.css';
 import SearechBar from './Searchbar/searchbar';
-import NavBar from './NavBar/navBar';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -29,6 +29,7 @@ class App extends Component {
                 <div className='Body' style={{backgroundColor: 'grey'}}>
                     body
                 </div>
+
 
             </div>
         );
