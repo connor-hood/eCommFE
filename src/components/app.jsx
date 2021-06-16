@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {Component} from 'react';
+import NavBar from './NavBar/navBar';
 
 class App extends Component {
 
@@ -7,6 +8,7 @@ class App extends Component {
         return(
             <div>
                 <h1>Hello</h1>
+                <NavBar />
             </div>
         );
     }
