@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentUser: None,
+        }
+    }
 
     
     render(){
         return(
             <div>
-                <h1>Hello</h1>
+                <div style={}>
+                    Search bar
+                </div>
+                <div>
+                    navigation
+                </div>
+                <div>
+                    body
+                </div>
             </div>
         );
     }
