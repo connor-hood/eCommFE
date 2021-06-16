@@ -1,24 +1,30 @@
 import React, {Component} from 'react';
-
+import './app.css';
+import SearechBar from './Searchbar/searchbar';
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentUser: None,
+            currentUser: "Null",
+            allItems: "Null",
+            allComments: "Null",
+
         }
     }
+
+
 
     
     render(){
         return(
-            <div>
-                <div style={}>
-                    Search bar
+            <div className='MainWrapper'>
+                <div className='SearchBar' style={{backgroundColor: 'teal'}}>
+                    <SearechBar />
                 </div>
-                <div>
+                <div className='Navigation' style={{backgroundColor: 'orange'}}>
                     navigation
                 </div>
-                <div>
+                <div className='Body' style={{backgroundColor: 'grey'}}>
                     body
                 </div>
             </div>
