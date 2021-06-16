@@ -12,12 +12,14 @@ const ProductDetail = () => {
     // }
 
 
-    
+
     // getProductById = async (product) => {
     //     let query = `https://localhost:44394/api/product/${product.id}`;
     //     let productById = await axios.get(query);
     //     this.setSTate({});
     // }
+
+    
 
 
     return(
