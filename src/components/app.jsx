@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './app.css';
-import SearechBar from './Searchbar/searchbar';
+import SearchBar from './Searchbar/searchbar';
 
 class App extends Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class App extends Component {
 
             <div className='MainWrapper'>
                 <div className='SearchBar' style={{backgroundColor: 'teal'}}>
-                    <SearechBar />
+                    <SearchBar />
                 </div>
                 <div className='Navigation' style={{backgroundColor: 'orange'}}>
                     navigation
@@ -29,6 +29,7 @@ class App extends Component {
                 <div className='Body' style={{backgroundColor: 'grey'}}>
                     body
                 </div>
+
 
 
             </div>
