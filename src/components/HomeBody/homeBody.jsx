@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './homeBody.css';
 
 const HomeBody = (props) => {
@@ -17,9 +17,11 @@ const HomeBody = (props) => {
                     <div className= "productInfo">
                         <ul>
                             <li>{item.description}</li>
-                            <li>{item.price}</li>
+                            <li>Price: ${item.price}</li>
                         </ul>
-                        <a href="#"> Product detail</a>                     
+                        <button type="button">
+                        <a href="#productDetail"> {item.name} detail</a>
+                        </button>                     
                     </div>
                 </div>
                 )}

@@ -22,7 +22,7 @@ function NavBar(props) {
           <div class="dItem" href="#">Roleplaying games</div>
         </div>
       </div> 
-      <a href="#news">Cart</a>
+      <a href="#cart">Cart</a>
       
           <a href="#login" style={{float: 'right'}}>Log In/Log Out</a>
           <a href="#register" style={{float: 'right'}}>Register</a>

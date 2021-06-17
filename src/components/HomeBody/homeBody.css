@@ -35,3 +35,7 @@
 .greeting {
     grid-area: welcome;
 }
+
+li {
+    list-style-type: none;
+}
