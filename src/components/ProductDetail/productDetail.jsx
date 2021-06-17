@@ -1,7 +1,7 @@
 import React from 'react';
 import './productDetail.css';
 
-const ProductDetail = () => {
+const ProductDetail = (props) => {
 
     // axios requests below will go in app.jsx but just hashing them out for now
 
@@ -12,7 +12,12 @@ const ProductDetail = () => {
 
     return(
         <div>
-            This is a test
+            Name: {this.props.name}
+            Description: {this.props.description}
+            Type: {this.props.type}
+            Age Rating: {this.props.agerating}
+            Genre: {this.props.genre}
+            Price: {this.props.price}
         </div>
     );
 }
