@@ -6,18 +6,17 @@ import axios from 'axios';
 import HomeBody from './HomeBody/homeBody';
 
 class App extends Component {
-    constructor(props) {
+    constructor(props) {  
         super(props);
         this.state = {
             currentUser: null,
             allProducts: [],
             selectedProduct: null,
             userCart: null,
-
-
         }
     }
-    componentDidMount(){
+
+    componentDidMount = () => {
         this.getAllProducts();
     }
 
@@ -68,7 +67,7 @@ class App extends Component {
                 <NavBar />
                 </div>
                  <div className='Body' style={{backgroundColor: 'grey'}}>
-                     <HomeBody />
+                     <HomeBody allProducts={this.state.allProducts}/>
                  </div>
                 
                 <div>
