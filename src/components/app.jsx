@@ -19,22 +19,15 @@ class App extends Component {
     render(){
         return(
             <div className='MainWrapper'>
-                <h1>Tantalum Games</h1>
+                  <div className='header' style={{backgroundColor: 'teal'}}>
+                    <h1>Tantalum Games</h1>
+                 </div>
                 <div className='NavBar'>
                 <NavBar />
                 </div>
-                  <div className='SearchBar' style={{backgroundColor: 'teal'}}>
-                    
-                     <SearchBar />
-                    
+                 <div className='Body' style={{backgroundColor: 'grey'}}>
+                     body
                  </div>
-                
-            {/*    <div className='Navigation' style={{backgroundColor: 'orange'}}>
-                    
-            //     </div>
-            //     <div className='Body' style={{backgroundColor: 'grey'}}>
-            //         body
-            //     </div> */}
 
             
 

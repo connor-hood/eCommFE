@@ -2,7 +2,7 @@
     color: black;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 3em auto auto;
+    grid-template-rows: 3em 45.99px auto;
     grid-template-areas: 
     'search'
     'nav'
@@ -12,9 +12,22 @@
     width: 100vw;
 }
 
-.SearchBar{
+.header{
     display: grid;
     grid-area: search;
-    place-content: center
-    ;
+    place-content: left;
 } 
+
+.header h1{
+    display: grid;
+height: 100%;}
+
+
+.NavBar{
+    grid-area: nav;
+}
+
+.Body{
+    display: grid;
+    grid-area: body;
+}
