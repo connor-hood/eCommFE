@@ -7,7 +7,7 @@ function NavBar(props) {
     <div class="navbar">
       <a href="#home">Home</a>
       <div class="dropdown">
-        <div class="dropbtn">Products</div>
+        <div class="dropbtn" a href="#">Products</div>
 
         <div class="dropdown-one">
           <div id="link1" class="dItem" href="#">Video Games
@@ -23,12 +23,12 @@ function NavBar(props) {
         </div>
       </div> 
       <a href="#news">Cart</a>
+      
+          <a href="#login" style={{float: 'right'}}>Log In/Log Out</a>
+          <a href="#register" style={{float: 'right'}}>Register</a>
+      
       <span className="searchbar">
       <SearchBar />
-      </span>
-      <span className="log-in">
-          <a href="#login">Log In/Log Out</a>
-          <a href="#register">Register</a>
       </span>
     </div>
     )
