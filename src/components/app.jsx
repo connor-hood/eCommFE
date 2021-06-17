@@ -81,9 +81,7 @@ class App extends Component {
                      <HomeBody allProducts={this.state.allProducts}/>
                  </div>
                 
-                <div>
-                    {this.state.allProducts.map(item => <div>{item.name}<button onClick={() => this.handleSelect(item)}>Select</button></div>)}
-                </div> 
+                
 
             </div>
             
