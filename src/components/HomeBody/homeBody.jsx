@@ -9,6 +9,10 @@ class HomeBody extends Component {
     render() { 
         return ( 
             <div className="HomeWrapper">
+                <div className="greeting">
+                    <h2 className="welcome">Welcome Guest(user if signed in)!</h2>
+                </div>
+                <div className="cardGrid">
                 <div className="productCard">
                     <h3>Name</h3>
                     <div className="product image">
@@ -34,8 +38,7 @@ class HomeBody extends Component {
                 <div className="productCard">product</div>
                 <div className="productCard">product</div>
                 <div className="productCard">product</div>
-                <div className="productCard">product</div>
-                
+                </div>
             </div>
          );
     }
