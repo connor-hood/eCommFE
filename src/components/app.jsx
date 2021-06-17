@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './app.css';
 import SearchBar from './Searchbar/searchbar';
+import NavBar from './NavBar/navBar';
 
 class App extends Component {
     constructor(props) {
@@ -18,21 +19,28 @@ class App extends Component {
     
     render(){
         return(
-
             <div className='MainWrapper'>
-                <div className='SearchBar' style={{backgroundColor: 'teal'}}>
-                    <SearchBar />
+                <h1>Tantalum Games</h1>
+                <div className='NavBar'>
+                <NavBar />
                 </div>
-                <div className='Navigation' style={{backgroundColor: 'orange'}}>
-                    navigation
-                </div>
-                <div className='Body' style={{backgroundColor: 'grey'}}>
-                    body
-                </div>
+                  {/* <div className='SearchBar' style={{backgroundColor: 'teal'}}>
+                    
+                     <SearchBar />
+                    
+                 </div> */}
+                
+            {/*    <div className='Navigation' style={{backgroundColor: 'orange'}}>
+                    
+            //     </div>
+            //     <div className='Body' style={{backgroundColor: 'grey'}}>
+            //         body
+            //     </div> */}
 
-
+            
 
             </div>
+            
         );
     }
 }

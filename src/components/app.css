@@ -1,8 +1,8 @@
-.MainWrapper{
-    color: aliceblue;
+/* .MainWrapper{
+    color: black;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 3em 1.3em auto;
+    grid-template-rows: 3em auto auto;
     grid-template-areas: 
     'search'
     'nav'
@@ -17,18 +17,4 @@
     grid-area: search;
     place-content: center
     ;
-}
-
-.Navigation{
-    display: grid;
-    grid-area: nav;
-    place-content: center
-
-}
-
-.Body{
-    display:grid;
-    grid-area: body;
-    place-content: center
-
-}
+} */
