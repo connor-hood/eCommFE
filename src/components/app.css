@@ -1,4 +1,4 @@
-/* .MainWrapper{
+ .MainWrapper{
     color: black;
     display: grid;
     grid-template-columns: 1fr;
@@ -17,4 +17,4 @@
     grid-area: search;
     place-content: center
     ;
-} */
+} 

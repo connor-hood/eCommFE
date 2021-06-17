@@ -23,11 +23,11 @@ class App extends Component {
                 <div className='NavBar'>
                 <NavBar />
                 </div>
-                  {/* <div className='SearchBar' style={{backgroundColor: 'teal'}}>
+                  <div className='SearchBar' style={{backgroundColor: 'teal'}}>
                     
                      <SearchBar />
                     
-                 </div> */}
+                 </div>
                 
             {/*    <div className='Navigation' style={{backgroundColor: 'orange'}}>
                     
