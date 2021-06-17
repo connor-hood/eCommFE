@@ -8,8 +8,6 @@ import HomeBody from './HomeBody/homeBody';
 class App extends Component {
     constructor(props) {
         super(props);
-        debugger;
-        this.getAllProducts();
         this.state = {
             currentUser: null,
             allProducts: [],
@@ -19,6 +17,9 @@ class App extends Component {
 
         }
     }
+    componentDidMount(){
+        this.getAllProducts();
+    }
 
     getAllProducts = async () => {
         let query = "https://localhost:44394/api/product"
@@ -26,7 +27,6 @@ class App extends Component {
         this.setState({
             allProducts: response.data
         });
-        debugger;
         console.log(this.state.allProducts);
     }
 
@@ -47,7 +47,12 @@ class App extends Component {
 
     }
 
-
+    handleSelect = (item) => {
+        this.setState({
+            selectedProduct: item
+        })
+        console.log(this.state.selectedProduct)
+    }
 
 
 
@@ -55,7 +60,7 @@ class App extends Component {
         return(
 
             <div className='MainWrapper'>
-                  
+  
                   <div className='header' style={{backgroundColor: 'teal'}}>
                     <h1 className='title'>Tantalum Games</h1>
                  </div>
@@ -65,8 +70,10 @@ class App extends Component {
                  <div className='Body' style={{backgroundColor: 'grey'}}>
                      <HomeBody />
                  </div>
-
-            
+                
+                <div>
+                    {this.state.allProducts.map(item => <div>{item.name}<button onClick={() => this.handleSelect(item)}>Select</button></div>)}
+                </div> 
 
             </div>
             
