@@ -3,6 +3,7 @@ import './app.css';
 import SearchBar from './Searchbar/searchbar';
 import NavBar from './NavBar/navBar';
 import axios from 'axios';
+import HomeBody from './HomeBody/homeBody';
 
 class App extends Component {
     constructor(props) {
@@ -54,14 +55,15 @@ class App extends Component {
         return(
 
             <div className='MainWrapper'>
+                  
                   <div className='header' style={{backgroundColor: 'teal'}}>
-                    <h1>Tantalum Games</h1>
+                    <h1 className='title'>Tantalum Games</h1>
                  </div>
                 <div className='NavBar'>
                 <NavBar />
                 </div>
                  <div className='Body' style={{backgroundColor: 'grey'}}>
-                     body
+                     <HomeBody />
                  </div>
 
             

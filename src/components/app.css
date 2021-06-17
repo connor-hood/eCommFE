@@ -16,11 +16,15 @@
     display: grid;
     grid-area: search;
     place-content: left;
+    color: azure;
 } 
 
-.header h1{
-    display: grid;
-height: 100%;}
+.title{
+    height: 2em;
+    margin: 0px;
+    text-align: left;
+}
+    
 
 
 .NavBar{
