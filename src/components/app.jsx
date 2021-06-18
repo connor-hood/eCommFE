@@ -70,10 +70,8 @@ class App extends Component {
     handleSelect = (item) => {
         this.setState({
             selectedProduct: item
-        });
-        console.log(this.state.selectedProduct)
+        }, () => {console.log(this.state.selectedProduct)});
     }
-
 
 
     render(){
