@@ -1,5 +1,6 @@
 import React from 'react';
 import './homeBody.css';
+import { Link } from 'react-router-dom';
 
 const HomeBody = (props) => {
     const handleSelect = props.handleSelect;
@@ -20,9 +21,13 @@ const HomeBody = (props) => {
                             <li>{item.description}</li>
                             <li>Price: ${item.price}</li>
                         </ul>
-                        <button type="button" onClick= {() => handleSelect(item)}>
+
+                        <Link to="/detail">
+                            <button type="submit" onClick={() => handleSelect(item)}>Details</button>
+                        </Link>
+                        {/* <button type="button" onClick= {() => handleSelect(item)}>
                         <a href="#productDetail"> {item.name} detail</a>
-                        </button>                     
+                        </button>                      */}
                     </div>
                 </div>
                 )}

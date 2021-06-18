@@ -26,16 +26,16 @@ class App extends Component {
 
     componentDidMount = () => {
         this.getAllProducts();
-        this.getUser(this.state.userToken);
+        // this.getUser(this.state.userToken);
     }
 
-    getUser = async (token) => {
-        debugger;
-        let response = await axios.post('https://localhost:44394/api/examples/user', {headers:{"Authorization" : `Bearer ${token}`}}).then(({ response }) => response);
-        this.setState({currentUser: response});
-        debugger;
-        console.log(this.state.currentUser);
-    }
+    // getUser = async (token) => {
+    //     debugger;
+    //     let response = await axios.post('https://localhost:44394/api/examples/user', {headers:{"Authorization" : `Bearer ${token}`}}).then(({ response }) => response);
+    //     this.setState({currentUser: response});
+    //     debugger;
+    //     console.log(this.state.currentUser);
+    // }
 
     getAllProducts = async () => {
         let query = "https://localhost:44394/api/product"
@@ -81,16 +81,15 @@ class App extends Component {
                   <div className='header' style={{backgroundColor: 'teal'}}>
                     <h1 className='title'>Tantalum Games</h1>
                  </div>
-                <div className='NavBar'>
                 <Switch>
-                    <Route path="/detail" exact component={ProductDetail} />
-
+                    <Route path="/detail" component={ProductDetail} />
+                    <Route path="/">
+                        <div className='Body' style={{backgroundColor: 'grey'}}>
+                            <HomeBody allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
+                        </div>
+                    </Route>
                 </Switch>
-                </div>
-                 <div className='Body' style={{backgroundColor: 'grey'}}>
-                     <HomeBody allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
-                 </div>
-                
+                 
 
             </div>
             </Router>
