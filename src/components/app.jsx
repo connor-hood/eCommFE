@@ -4,6 +4,12 @@ import NavBar from './NavBar/navBar';
 import HomeBody from './HomeBody/homeBody';
 import ProductDetail from './ProductDetail/productDetail';
 import axios from 'axios';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 class App extends Component {
     constructor(props) {  
@@ -68,23 +74,26 @@ class App extends Component {
 
     render(){
         return(
-
+            <Router>
+                <NavBar className="NavBar"/>
             <div className='MainWrapper'>
-  
+            
                   <div className='header' style={{backgroundColor: 'teal'}}>
                     <h1 className='title'>Tantalum Games</h1>
                  </div>
                 <div className='NavBar'>
-                <NavBar />
+                <Switch>
+                    <Route path="/detail" exact component={ProductDetail} />
+
+                </Switch>
                 </div>
                  <div className='Body' style={{backgroundColor: 'grey'}}>
-                     <HomeBody allProducts={this.state.allProducts}/>
+                     <HomeBody allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
                  </div>
                 
-                <ProductDetail />
 
             </div>
-            
+            </Router>
         );
     }
 }

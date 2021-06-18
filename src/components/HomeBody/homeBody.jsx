@@ -2,6 +2,7 @@ import React from 'react';
 import './homeBody.css';
 
 const HomeBody = (props) => {
+    const handleSelect = props.handleSelect;
     return(
         <div className="HomeWrapper">
             <div className="greeting">
@@ -19,7 +20,7 @@ const HomeBody = (props) => {
                             <li>{item.description}</li>
                             <li>Price: ${item.price}</li>
                         </ul>
-                        <button type="button">
+                        <button type="button" onClick= {() => handleSelect(item)}>
                         <a href="#productDetail"> {item.name} detail</a>
                         </button>                     
                     </div>
