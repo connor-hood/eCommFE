@@ -93,7 +93,7 @@ class App extends Component {
         let values = {
             UserId: userId,
             ProductId: productId,
-            quantity
+            Quantity: quantity
         };
         async function postData() {
             await axios.post(`https://localhost:44394/api/shoppingcart`, values)
