@@ -14,7 +14,7 @@ const HomeBody = (props) => {
                     <div className="productCard">
                         <h3>{item.name}</h3>
                     <div className="product image">
-                        <img src="https://via.placeholder.com/250" alt="placeholder"/>
+                        <img src={item.imageURL} alt="placeholder" height="250" width="250"/>
                     </div>
                     <div className= "productInfo">
                         <ul>

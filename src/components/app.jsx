@@ -9,7 +9,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
 } from "react-router-dom";
 import jwtDecode from 'jwt-decode';
 import LoginRegister from './LoginRegister/loginRegister.jsx';
@@ -114,10 +113,9 @@ class App extends Component {
             <Router>
                 <NavBar className="NavBar"/>
             <div className='MainWrapper'>
-            
-                  <div className='header' style={{backgroundColor: 'teal'}}>
+                <div className='header' style={{backgroundColor: 'teal'}}>
                     <h1 className='title'>Tantalum Games</h1>
-                 </div>
+                </div>
                 <Switch>
                     <Route path="/add" component={ProductForm}>
                         <ProductForm addProductToState={this.addProductToState}></ProductForm>
@@ -128,19 +126,15 @@ class App extends Component {
                     <Route path="/detail">
                         <ProductDetail selectedProduct={this.state.selectedProduct} />                   
                     </Route>
-
                     <Route path="/">
                         <div className='Body' style={{backgroundColor: 'grey'}}>
                             <HomeBody allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
                         </div>
                     </Route>  
-
                     <Route path="/shoppingcart">
                         <ShoppingCart userCart={this.state.userCart} />    
                     </Route>         
-
                 </Switch>
-                 
             </div>
             </Router>
         );
