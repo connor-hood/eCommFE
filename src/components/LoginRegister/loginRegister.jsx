@@ -6,29 +6,21 @@ class LoginRegister extends Component {
         userName: '',
         password: ''
     }
-    componentDidMount() {
-        const jwt = localStorage.getItem('token');
-        try{
-            const user = jwtDecode(jwt);
-            this.setState({
-                user
-            });
-        } catch {
-            
-        }
-    }
 
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     };
+
     handleSubmit = (event) => {
         event.preventOrDefault();
 
     }
+
     render() { 
         return ( 
+            
             <div>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                     <label>User Name</label>

@@ -10,36 +10,44 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import jwtDecode from 'jwt-decode';
+import LoginRegister from './LoginRegister/loginRegister.jsx';
 
 class App extends Component {
     constructor(props) {  
         super(props);
-        
         this.state = {
             currentUser: null,
             allProducts: [],
             selectedProduct: null,
             userCart: null,
-            userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFrdXJvd3NraSIsImVtYWlsIjoiYWFyb25AZGV2Y29kZWNhbXAuY29tIiwiaWQiOiIzMDZmYTRhMC1mMzllLTQ2OTgtOTIxZC0xMzg1NDlmZTFkNmEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNjIzOTY0Mzg1LCJpc3MiOiJlQ29tbWVyY2VXZWJBUEkiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.fnBezSyG3F2b7le2hevh_Y5BV8FEZtVkijL2nlu63a4"
+            // userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFrdXJvd3NraSIsImVtYWlsIjoiYWFyb25AZGV2Y29kZWNhbXAuY29tIiwiaWQiOiIzMDZmYTRhMC1mMzllLTQ2OTgtOTIxZC0xMzg1NDlmZTFkNmEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNjIzOTY0Mzg1LCJpc3MiOiJlQ29tbWVyY2VXZWJBUEkiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.fnBezSyG3F2b7le2hevh_Y5BV8FEZtVkijL2nlu63a4"
         }
     }
 
     componentDidMount = () => {
         this.getAllProducts();
-        // this.getUser(this.state.userToken);
+
+        const jwt = localStorage.getItem('token');
+        try{
+            const user = jwtDecode(jwt);
+            this.setState({currentUser: user});
+        }catch{
+            console.log("Something went wrong while logging in");
+        }
     }
 
-    componentDidUpdate = (selectedProduct) => {
-
+    loginUser = () => {
+        let response = axios.post(`https://localhost:44394/api/authentication/login`);
+        localStorage.setItem('token', response.token);
+        console.log(response.token);
     }
 
-    // getUser = async (token) => {
-    //     debugger;
-    //     let response = await axios.post('https://localhost:44394/api/examples/user', {headers:{"Authorization" : `Bearer ${token}`}}).then(({ response }) => response);
-    //     this.setState({currentUser: response});
-    //     debugger;
-    //     console.log(this.state.currentUser);
-    // }
+    getUser = async (token) => {
+        let response = await axios.get('https://localhost:44394/api/examples/user', {headers:{"Authorization" : `Bearer ${token}`}}).then(({ response }) => response);
+        // this.setState({currentUser: response});
+        console.log(response.data);
+    }
 
     getAllProducts = async () => {
         let query = "https://localhost:44394/api/product"
@@ -63,10 +71,6 @@ class App extends Component {
         this.getAllProducts();
     }
 
-    updateProduct = async (product) => {
-
-    }
-
     handleSelect = (item) => {
         this.setState({
             selectedProduct: item
@@ -84,14 +88,23 @@ class App extends Component {
                     <h1 className='title'>Tantalum Games</h1>
                  </div>
                 <Switch>
-                    <Route path="/detail" component={ProductDetail}>
-                        <ProductDetail selectedProduct={this.state.selectedProduct} />
+                    
+                    <Route path="/login" component={LoginRegister}>
+                        <LoginRegister />
                     </Route>
+
+                    <Route path="/detail">
+                        <ProductDetail selectedProduct={this.state.selectedProduct} />                   
+                    </Route>
+
                     <Route path="/">
                         <div className='Body' style={{backgroundColor: 'grey'}}>
                             <HomeBody allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
                         </div>
                     </Route>
+
+                    
+
                 </Switch>
                  
 
