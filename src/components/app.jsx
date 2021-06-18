@@ -116,7 +116,6 @@ class App extends Component {
                     <Route path="/login" component={LoginRegister}>
                         <LoginRegister />
                     </Route>
-
                     <Route path="/detail">
                         <ProductDetail selectedProduct={this.state.selectedProduct} />                   
                     </Route>

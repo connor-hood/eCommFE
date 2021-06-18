@@ -20,54 +20,50 @@ class ProductForm extends Component {
         })
     };
 
-    handleSubmit = (event) => {
-        alert(
-            `Product Name: ${this.state.name}
-            Description: ${this.state.description}
-            Type of game: ${this.state.type}
-            Age Rating: ${this.state.ageRating}
-            Genre: ${this.state.genre}
-            Price: $${this.state.price}`)
-            this.createProduct();
+    handleSubmit = async (event) => {
+        try {
+            event.preventDefault()
+        const newProduct = {
+            Name: this.state.name,
+            Description: this.state.description,
+            Type: this.state.type,
+            AgeRating: this.state.ageRating,
+            Genre: this.state.genre,
+            Price: parseInt(this.state.price)
+        }
+        await axios.post('https://localhost:44394/api/product/', newProduct);
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
 
     componentDidMount(){
         
     }
 
-    async createProduct() {
-        let response = await axios.post('https://localhost:44394/api/product/', this.state);
-        this.setState({
-            name: response.data,
-            description: response.data,
-            type: response.data,
-            ageRating: response.data,
-            genre: response.data,
-            price: response.data
-        });
-    }
     render() { 
         return ( 
             <div>
                 <h1>Add a new product!</h1>
-                <form onSubmit={(event) => this.handleSubmit(event)}>
+                <form onSubmit={this.handleSubmit}>
                     <label>Product Name: </label>
-                    <input type="text" name="name" id="name" onChange={this.handleChange}></input>
+                    <input type="text" name="name" id="name" value={this.state.name} onChange={this.handleChange}></input>
                     <br></br>
                     <label>Description: </label>
-                    <input type="text" name="description" id="description" onChange={this.handleChange}></input>
+                    <input type="text" name="description" id="description" value={this.state.description} onChange={this.handleChange}></input>
                     <br></br>
                     <label>Type of game: </label>
-                    <input type="text" name="type" id="type" onChange={this.handleChange}></input>
+                    <input type="text" name="type" id="type" onChange={this.handleChange} value={this.state.type}></input>
                     <br></br>
                     <label>Age Rating: </label>
-                    <input type="text" name="ageRating" id="ageRating" onChange={this.handleChange}></input>
+                    <input type="text" name="ageRating" id="ageRating" onChange={this.handleChange} value={this.state.ageRating}></input>
                     <br></br>
                     <label>Genre: </label>
-                    <input type="text" name="genre" id="genre" onChange={this.handleChange}></input>
+                    <input type="text" name="genre" id="genre" onChange={this.handleChange} value={this.state.genre}></input>
                     <br></br>
                     <label>Price: </label>
-                    <input type="text" name="price" id="price" onChange={this.handleChange}></input>
+                    <input type="number" name="price" id="price" onChange={this.handleChange} value={this.state.price}></input>
                     <br></br>
                     <input type="submit"/>
                 </form>
