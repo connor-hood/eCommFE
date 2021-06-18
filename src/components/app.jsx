@@ -3,6 +3,7 @@ import './app.css';
 import NavBar from './NavBar/navBar';
 import HomeBody from './HomeBody/homeBody';
 import ProductDetail from './ProductDetail/productDetail';
+import ShoppingCart from './ShoppingCart/shoppingCart';
 import axios from 'axios';
 import {
     BrowserRouter as Router,
@@ -77,6 +78,28 @@ class App extends Component {
         }, () => {console.log(this.state.selectedProduct)});
     }
 
+    // Shopping Cart Functions
+    getShoppingCart = async (currentUser) => {
+        let query = `https://localhost:44394/api/shoppingcart/${currentUser.id}`
+        let response = await axios.get(query);
+        this.setState({
+            userCart: response.data
+        }, () => {console.log(this.state.userCart)}
+        );
+    }
+
+    addShoppingCartItem = (userId, productId, quantity) => {
+        let values = {
+            UserId: userId,
+            ProductId: productId,
+            quantity
+        };
+        async function postData() {
+            await axios.post(`https://localhost:44394/api/shoppingcart`, values)
+        }
+        postData();
+        this.getShoppingCart()
+    }
 
     render(){
         return(
@@ -101,7 +124,11 @@ class App extends Component {
                         <div className='Body' style={{backgroundColor: 'grey'}}>
                             <HomeBody allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
                         </div>
-                    </Route>               
+                    </Route>  
+
+                    <Route path="/shoppingcart">
+                        <ShoppingCart userCart={this.state.userCart} />    
+                    </Route>         
 
                 </Switch>
                  
