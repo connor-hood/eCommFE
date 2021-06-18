@@ -15,12 +15,12 @@ class LoginRegister extends Component {
 
     handleSubmit = (event) => {
         event.preventOrDefault();
-
+        
     }
 
     render() { 
         return ( 
-            
+
             <div>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
                     <label>User Name</label>

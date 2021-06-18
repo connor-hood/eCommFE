@@ -1,7 +1,8 @@
 import React from 'react';
 import './navBar.css';
 import SearchBar from '../Searchbar/searchbar';
-import { Link } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
+import ProductForm from '../NewProduct/newProduct';
 
 function NavBar(props) {
     return(
@@ -21,6 +22,10 @@ function NavBar(props) {
           </div>
           <div class="dItem" href="#">Board Games</div>
           <div class="dItem" href="#">Roleplaying games</div>
+          <div class="dItem">Add a Product!</div>
+          <Switch>
+            
+          </Switch>
         </div>
       </div> 
       <a href="#cart">Cart</a>

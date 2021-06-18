@@ -88,7 +88,7 @@ class App extends Component {
                     <h1 className='title'>Tantalum Games</h1>
                  </div>
                 <Switch>
-                    
+
                     <Route path="/login" component={LoginRegister}>
                         <LoginRegister />
                     </Route>
@@ -101,13 +101,10 @@ class App extends Component {
                         <div className='Body' style={{backgroundColor: 'grey'}}>
                             <HomeBody allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
                         </div>
-                    </Route>
-
-                    
+                    </Route>               
 
                 </Switch>
                  
-
             </div>
             </Router>
         );
