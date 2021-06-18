@@ -1,11 +1,12 @@
 import React from 'react';
 import './navBar.css';
 import SearchBar from '../Searchbar/searchbar';
+import { Link } from 'react-router-dom';
 
 function NavBar(props) {
     return(
     <div class="navbar">
-      <a href="#home">Home</a>
+      <Link to='/'>Home</Link>
       <div class="dropdown">
         <div class="dropbtn" a href="#">Products</div>
 
