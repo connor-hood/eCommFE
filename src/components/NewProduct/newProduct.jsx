@@ -10,7 +10,8 @@ class ProductForm extends Component {
             type: '',
             ageRating: '',
             genre: '',
-            price: 0
+            price: 0,
+            imageURL: '',
          };
     }
 
@@ -65,6 +66,9 @@ class ProductForm extends Component {
                     <br></br>
                     <label>Price: </label>
                     <input type="number" name="price" id="price" onChange={this.handleChange} value={this.state.price}></input>
+                    <br></br>
+                    <label>Image URL (Go to Google.com/images, find an image of your product, right click and select "Copy image address": </label>
+                    <input type="text" name="imageURL" id="imageURL" onChange={this.handleChange} value={this.state.imageURL}></input>
                     <br></br>
                     <input type="submit"/>
                 </form>

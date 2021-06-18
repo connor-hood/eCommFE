@@ -6,6 +6,7 @@ const ProductDetail = (props) => {
     if(props.selectedProduct !== null){
         return(
             <div>
+                <img src={props.selectedProduct.imageURL} alt="placeholder" height="500" width="400"/>
                 <p>Name: {props.selectedProduct.name}</p>
                 <p>Description: {props.selectedProduct.description}</p>
                 <p>Type: {props.selectedProduct.type}</p>
