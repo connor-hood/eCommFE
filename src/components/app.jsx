@@ -29,6 +29,10 @@ class App extends Component {
         // this.getUser(this.state.userToken);
     }
 
+    componentDidUpdate = (selectedProduct) => {
+
+    }
+
     // getUser = async (token) => {
     //     debugger;
     //     let response = await axios.post('https://localhost:44394/api/examples/user', {headers:{"Authorization" : `Bearer ${token}`}}).then(({ response }) => response);
@@ -66,7 +70,7 @@ class App extends Component {
     handleSelect = (item) => {
         this.setState({
             selectedProduct: item
-        })
+        });
         console.log(this.state.selectedProduct)
     }
 
@@ -82,7 +86,9 @@ class App extends Component {
                     <h1 className='title'>Tantalum Games</h1>
                  </div>
                 <Switch>
-                    <Route path="/detail" component={ProductDetail} />
+                    <Route path="/detail" component={ProductDetail}>
+                        <ProductDetail selectedProduct={this.state.selectedProduct} />
+                    </Route>
                     <Route path="/">
                         <div className='Body' style={{backgroundColor: 'grey'}}>
                             <HomeBody allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>

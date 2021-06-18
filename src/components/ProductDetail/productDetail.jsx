@@ -3,24 +3,21 @@ import './productDetail.css';
 
 const ProductDetail = (props) => {
 
-    // axios requests below will go in app.jsx but just hashing them out for now
-
-    
-
-    
-
-
-    return(
-        <div>
-            <p>Name:</p>
-            <p>Description:</p>
-            <p>Type:</p>
-            <p>Age Rating:</p>
-            <p>Genre:</p>
-            <p>Price:</p>
-
-        </div>
-    );
+    if(props.selectedProduct !== null){
+        return(
+            <div>
+                <p>Name: {props.selectedProduct.name}</p>
+                <p>Description: {props.selectedProduct.description}</p>
+                <p>Type: {props.selectedProduct.type}</p>
+                <p>Age Rating: {props.selectedProduct.ageRating}</p>
+                <p>Genre: {props.selectedProduct.genre}</p>
+                <p>Price: ${props.selectedProduct.price}</p>
+            </div>
+        );
+    }
+    else{
+        return("Uh oh...error");
+    }
 }
 
 export default ProductDetail;
