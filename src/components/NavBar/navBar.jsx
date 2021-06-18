@@ -21,6 +21,7 @@ function NavBar(props) {
           </div>
           <div class="dItem" href="#">Board Games</div>
           <div class="dItem" href="#">Roleplaying games</div>
+          <div class="dItem">Add a Product!</div>
         </div>
       </div> 
       <a href="#cart">Cart</a>
