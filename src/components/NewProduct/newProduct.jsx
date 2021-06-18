@@ -32,7 +32,7 @@ class ProductForm extends Component {
     }
 
     componentDidMount(){
-        this.createProduct()
+        
     }
 
     async createProduct() {

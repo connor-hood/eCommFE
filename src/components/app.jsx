@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import jwtDecode from 'jwt-decode';
 import LoginRegister from './LoginRegister/loginRegister.jsx';
+import ProductForm from './NewProduct/newProduct';
 
 class App extends Component {
     constructor(props) {  
@@ -111,7 +112,7 @@ class App extends Component {
                     <h1 className='title'>Tantalum Games</h1>
                  </div>
                 <Switch>
-
+                    <Route path="/add" component={ProductForm}></Route>
                     <Route path="/login" component={LoginRegister}>
                         <LoginRegister />
                     </Route>

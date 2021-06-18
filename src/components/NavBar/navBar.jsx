@@ -1,7 +1,7 @@
 import React from 'react';
 import './navBar.css';
 import SearchBar from '../Searchbar/searchbar';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch } from 'react-router-dom';
 import ProductForm from '../NewProduct/newProduct';
 
 function NavBar(props) {
