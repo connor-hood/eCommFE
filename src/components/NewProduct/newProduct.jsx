@@ -31,6 +31,7 @@ class ProductForm extends Component {
             Genre: this.state.genre,
             Price: parseInt(this.state.price)
         }
+        this.props.addProductToState()
         await axios.post('https://localhost:44394/api/product/', newProduct);
         } catch (error) {
             console.log(error)

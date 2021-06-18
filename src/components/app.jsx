@@ -102,6 +102,13 @@ class App extends Component {
         this.getShoppingCart()
     }
 
+    addProductToState = (item) => {
+        this.setState({
+            allProducts: {...this.state.allProducts, item}
+        })
+        alert("Product Added");
+    }
+
     render(){
         return(
             <Router>
@@ -112,7 +119,9 @@ class App extends Component {
                     <h1 className='title'>Tantalum Games</h1>
                  </div>
                 <Switch>
-                    <Route path="/add" component={ProductForm}></Route>
+                    <Route path="/add" component={ProductForm}>
+                        <ProductForm addProductToState={this.addProductToState}></ProductForm>
+                    </Route>
                     <Route path="/login" component={LoginRegister}>
                         <LoginRegister />
                     </Route>
