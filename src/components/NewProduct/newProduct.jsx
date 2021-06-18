@@ -49,19 +49,26 @@ class ProductForm extends Component {
     render() { 
         return ( 
             <div>
+                <h1>Add a new product!</h1>
                 <form onSubmit={(event) => this.handleSubmit(event)}>
-                    <label>Product Name</label>
+                    <label>Product Name: </label>
                     <input type="text" name="name" id="name" onChange={this.handleChange}></input>
-                    <label>Description</label>
+                    <br></br>
+                    <label>Description: </label>
                     <input type="text" name="description" id="description" onChange={this.handleChange}></input>
-                    <label>Type of game</label>
+                    <br></br>
+                    <label>Type of game: </label>
                     <input type="text" name="type" id="type" onChange={this.handleChange}></input>
-                    <label>Age Rating</label>
+                    <br></br>
+                    <label>Age Rating: </label>
                     <input type="text" name="ageRating" id="ageRating" onChange={this.handleChange}></input>
-                    <label>Genre</label>
+                    <br></br>
+                    <label>Genre: </label>
                     <input type="text" name="genre" id="genre" onChange={this.handleChange}></input>
-                    <label>Price</label>
+                    <br></br>
+                    <label>Price: </label>
                     <input type="text" name="price" id="price" onChange={this.handleChange}></input>
+                    <br></br>
                     <input type="submit"/>
                 </form>
             </div>

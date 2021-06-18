@@ -3,6 +3,7 @@ import './app.css';
 import NavBar from './NavBar/navBar';
 import HomeBody from './HomeBody/homeBody';
 import ProductDetail from './ProductDetail/productDetail';
+import ProductForm from './NewProduct/newProduct';
 import axios from 'axios';
 import {
     BrowserRouter as Router,
@@ -10,6 +11,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+
 
 class App extends Component {
     constructor(props) {  
@@ -84,6 +86,7 @@ class App extends Component {
                     <h1 className='title'>Tantalum Games</h1>
                  </div>
                 <Switch>
+                    <Route path="/add" component={ProductForm}></Route>
                     <Route path="/detail" component={ProductDetail}>
                         <ProductDetail selectedProduct={this.state.selectedProduct} />
                     </Route>
