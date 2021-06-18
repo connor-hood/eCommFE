@@ -12,12 +12,13 @@ const ProductDetail = (props) => {
 
     return(
         <div>
-            Name: {this.props.name}
-            Description: {this.props.description}
-            Type: {this.props.type}
-            Age Rating: {this.props.agerating}
-            Genre: {this.props.genre}
-            Price: {this.props.price}
+            <p>Name:</p>
+            <p>Description:</p>
+            <p>Type:</p>
+            <p>Age Rating:</p>
+            <p>Genre:</p>
+            <p>Price:</p>
+
         </div>
     );
 }

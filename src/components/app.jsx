@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import './app.css';
-import SearchBar from './Searchbar/searchbar';
 import NavBar from './NavBar/navBar';
-import axios from 'axios';
 import HomeBody from './HomeBody/homeBody';
+import ProductDetail from './ProductDetail/productDetail';
+import axios from 'axios';
 
 class App extends Component {
     constructor(props) {  
@@ -81,7 +81,7 @@ class App extends Component {
                      <HomeBody allProducts={this.state.allProducts}/>
                  </div>
                 
-                
+                <ProductDetail />
 
             </div>
             
