@@ -21,8 +21,7 @@ class App extends Component {
             currentUser: null,
             allProducts: [],
             selectedProduct: null,
-            userCart: null,
-            // userToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFrdXJvd3NraSIsImVtYWlsIjoiYWFyb25AZGV2Y29kZWNhbXAuY29tIiwiaWQiOiIzMDZmYTRhMC1mMzllLTQ2OTgtOTIxZC0xMzg1NDlmZTFkNmEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNjIzOTY0Mzg1LCJpc3MiOiJlQ29tbWVyY2VXZWJBUEkiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxIn0.fnBezSyG3F2b7le2hevh_Y5BV8FEZtVkijL2nlu63a4"
+            userCart: null
         }
     }
 
@@ -98,13 +97,13 @@ class App extends Component {
             await axios.post(`https://localhost:44394/api/shoppingcart`, values)
         }
         postData();
-        this.getShoppingCart()
+        this.getShoppingCart();
     }
 
     addProductToState = (item) => {
         this.setState({
-            allProducts: {...this.state.allProducts, item}
-        })
+            allProducts: [...this.state.allProducts, item]
+        });
         alert("Product Added");
     }
 

@@ -23,25 +23,33 @@ class ProductForm extends Component {
 
     handleSubmit = async (event) => {
         try {
-            event.preventDefault()
-        const newProduct = {
-            Name: this.state.name,
-            Description: this.state.description,
-            Type: this.state.type,
-            AgeRating: this.state.ageRating,
-            Genre: this.state.genre,
-            Price: parseInt(this.state.price)
-        }
-        this.props.addProductToState()
+            event.preventDefault();
+            const newProduct = {
+                name: this.state.name,
+                description: this.state.description,
+                type: this.state.type,
+                ageRating: this.state.ageRating,
+                genre: this.state.genre,
+                price: parseInt(this.state.price),
+                imageURL: this.state.imageURL
+            }
+        this.props.addProductToState(newProduct);
         await axios.post('https://localhost:44394/api/product/', newProduct);
-        } catch (error) {
+        } 
+        catch (error) {
             console.log(error)
         }
-        
-    }
-
-    componentDidMount(){
-        
+        finally{
+            this.setState({
+                name: '',
+                description: '',
+                type: '',
+                ageRating: '',
+                genre: '',
+                price: 0,
+                imageURL: ''
+            });
+        }    
     }
 
     render() { 
