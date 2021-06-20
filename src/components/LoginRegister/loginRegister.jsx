@@ -14,17 +14,6 @@ class LoginRegister extends Component {
         });
     };
 
-    // componentDidMount() {
-    //     debugger;
-    //     const jwt = localStorage.getItem('token');
-    //     try{
-    //         const user = jwtDecode(jwt);
-    //         this.setState({currentUser: user});
-    //     }catch{
-    //         console.log("Something went wrong while logging in");
-    //     }
-    // }
-
     handleSubmit = (event) => {
         event.preventDefault(); 
         debugger;

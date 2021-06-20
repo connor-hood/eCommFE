@@ -21,7 +21,8 @@ class App extends Component {
             currentUser: null,
             allProducts: [],
             selectedProduct: null,
-            userCart: null
+            userCart: null,
+            searchQuery: '',
         }  
     }
 
@@ -40,6 +41,29 @@ class App extends Component {
         }catch{
             console.log("User not logged in");
         }
+    }
+
+    addSearchQuery = (query) => {
+        query.toLowerCase();
+        this.setState({
+            searchQuery: query
+        });
+    }
+
+    filterProductsBySearch = (products, query) => {
+        debugger;
+        console.log(query);
+        if(!query){
+            return products;
+        }
+        debugger;
+        let filteredProducts = products.filter((product) => {
+            let productName = product.name;
+            if(productName.toLowerCase().includes(query.toLowerCase())){
+                return true;
+            }
+        });
+        return filteredProducts;
     }
 
     registerUser = async (userCredentials) => {
@@ -133,7 +157,7 @@ class App extends Component {
         return(
             <Router>
                 {user && 
-                <NavBar className="NavBar"/>
+                <NavBar addSearchQuery={this.addSearchQuery} allProducts={this.state.allProducts} className="NavBar"/>
                 }
             <div className='MainWrapper'>
                 <div className='header' style={{backgroundColor: 'teal'}}>
@@ -151,7 +175,7 @@ class App extends Component {
                     </Route>
                     <Route path="/">
                         <div className='Body' style={{backgroundColor: 'grey'}}>
-                            <HomeBody allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
+                            <HomeBody searchQuery={this.state.searchQuery} filterProducts={this.filterProductsBySearch} allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
                         </div>
                     </Route>  
                     <Route path="/shoppingcart">
