@@ -14,9 +14,12 @@ function NavBar(props) {
           <div id="link1" class="dItem" href="#">Video Games
 
             <div class="dropdown-two">
-              <div class="dItem" id="file" href="#">Fighting</div>
-              <div class="dItem" id="file" href="#">Shooting</div>
-              <div class="dItem" id="file" href="#">Arcade</div>
+              <div onClick={() => props.addSearchQuery('fighting')} class="dItem" id="file" href="#">Fighting</div>
+              <div onClick={() => props.addSearchQuery('shooting')} class="dItem" id="file" href="#">Shooting</div>
+              <div onClick={() => props.addSearchQuery('arcade')} class="dItem" id="file" href="#">Arcade</div>
+              <div onClick={() => props.addSearchQuery('sandbox')} class="dItem" id="file" href="#">Sandbox</div>
+              <div onClick={() => props.addSearchQuery('rpg')} class="dItem" id="file" href="#">RPG</div>
+              <div onClick={() => props.addSearchQuery('strategy')} class="dItem" id="file" href="#">Strategy</div>
             </div>
           </div>
           <div class="dItem" href="#">Board Games</div>

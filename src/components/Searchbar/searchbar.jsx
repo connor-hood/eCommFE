@@ -17,12 +17,10 @@ class SearchBar extends Component {
     }
 
     handleSearch = (event) => {
-        debugger;
         event.preventDefault();
         const searchTerm = {
             searchQuery: this.state.searchQuery
         }
-        debugger;
         this.props.addSearchQuery(searchTerm.searchQuery.toLowerCase());
     }
 

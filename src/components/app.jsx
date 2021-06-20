@@ -51,15 +51,11 @@ class App extends Component {
     }
 
     filterProductsBySearch = (products, query) => {
-        debugger;
-        console.log(query);
         if(!query){
             return products;
         }
-        debugger;
         let filteredProducts = products.filter((product) => {
-            let productName = product.name;
-            if(productName.toLowerCase().includes(query.toLowerCase())){
+            if(product.name.toLowerCase().includes(query.toLowerCase()) || product.genre.toLowerCase().includes(query.toLowerCase())){
                 return true;
             }
         });

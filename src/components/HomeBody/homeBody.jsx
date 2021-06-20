@@ -26,9 +26,6 @@ const HomeBody = (props) => {
                         <Link to="/detail">
                             <button type="submit" onClick={() => handleSelect(item)}>Details</button>
                         </Link>
-                        {/* <button type="button" onClick= {() => handleSelect(item)}>
-                        <a href="#productDetail"> {item.name} detail</a>
-                        </button>                      */}
                     </div>
                 </div>
                 )}
