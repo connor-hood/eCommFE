@@ -22,7 +22,11 @@ class App extends Component {
             allProducts: [],
             selectedProduct: null,
             userCart: null
-        }
+        }  
+    }
+
+    componentWillMount = () => {
+        console.log(this.state.currentUser);
     }
 
     componentDidMount = () => {
@@ -32,20 +36,37 @@ class App extends Component {
         try{
             const user = jwtDecode(jwt);
             this.setState({currentUser: user});
+            console.log("User logged in");
         }catch{
-            console.log("Something went wrong while logging in");
+            console.log("User not logged in");
         }
     }
 
-    loginUser = () => {
-        let response = axios.post(`https://localhost:44394/api/authentication/login`);
-        localStorage.setItem('token', response.token);
-        console.log(response.token);
+    registerUser = async (userCredentials) => {
+        axios.post(`https://localhost:44394/api/authentication`, userCredentials).then(console.log("User registered"));
+        alert("User registered!");
+    }
+
+    loginUser = async (userCredentials) => {
+        try{
+            let query = `https://localhost:44394/api/authentication/login`;
+            let response = await axios.post(query, userCredentials);
+            console.log(response);
+            let token = response.data.token;
+            localStorage.setItem("token", token);
+        }
+        catch(er){
+            console.log("There has been an error while logging in");
+            console.log(er);
+        }
+    }
+
+    logoutUser = () => {
+        localStorage.removeItem("token");
     }
 
     getUser = async (token) => {
         let response = await axios.get('https://localhost:44394/api/examples/user', {headers:{"Authorization" : `Bearer ${token}`}}).then(({ response }) => response);
-        // this.setState({currentUser: response});
         console.log(response.data);
     }
 
@@ -108,9 +129,12 @@ class App extends Component {
     }
 
     render(){
+        const user = this.state.currentUser;
         return(
             <Router>
+                {user && 
                 <NavBar className="NavBar"/>
+                }
             <div className='MainWrapper'>
                 <div className='header' style={{backgroundColor: 'teal'}}>
                     <h1 className='title'>Tantalum Games</h1>
@@ -120,7 +144,7 @@ class App extends Component {
                         <ProductForm addProductToState={this.addProductToState}></ProductForm>
                     </Route>
                     <Route path="/login" component={LoginRegister}>
-                        <LoginRegister />
+                        <LoginRegister loginUser={this.loginUser} />
                     </Route>
                     <Route path="/detail">
                         <ProductDetail selectedProduct={this.state.selectedProduct} />                   

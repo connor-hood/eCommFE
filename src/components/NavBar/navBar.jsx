@@ -25,8 +25,8 @@ function NavBar(props) {
       </div> 
       <Link to='/add'>Add a Product!</Link>
       <a href="#cart">Cart</a>
-      
-          <a href="#login" style={{float: 'right'}}>Log In/Log Out</a>
+
+          <Link style={{float: 'right'}} to='/login'>Log In/Log Out</Link>
           <a href="#register" style={{float: 'right'}}>Register</a>
       
       <span className="searchbar">
