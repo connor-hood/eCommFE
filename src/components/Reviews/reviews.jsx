@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import './reviews.css';
 
 const Reviews = (props) => {
     // destructuring
@@ -38,26 +39,31 @@ const Reviews = (props) => {
     }
 
     return(
-        <React.Fragment>
-            {reviews &&
-                <div>
-                    <div>Overall Rating: {averageRating(reviews)}</div>
-                    <br></br>
-                    <h2>Reviews:</h2>
-                    {reviews.map((review) => 
-                        <React.Fragment>
-                            <span>{review.text}</span>
-                            <span> Rating: {review.rating}</span>
-                            <br></br>
-                        </React.Fragment>
-                    )}
+        <div className="ReviewWrapper">
+            
+            <div className="reviewBody">
+            <h4>Reviews ({reviews.length} total Reviews)</h4>
+            {reviews.map((review) =>
+                
+            <div className="userReview">
+                
+                <div className="ReviewAuthor"> 
+                    <h4>User {review.Id}</h4> 
                 </div>
-            }
-            {!reviews &&
-                <div>No reviews to show</div>
-            }
-        </React.Fragment>
-    );
-}
-
+                    <div className="StarRating">
+                        {review.rating}
+                        <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                        <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                        <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                    </div >
+                <div className="ReviewBody">
+                    <p>{review.text} </p>
+                </div>
+             </div>
+             )}
+             </div>
+         </div>
+        );
+    }
+     
 export default Reviews;
