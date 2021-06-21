@@ -30,7 +30,7 @@ function NavBar(props) {
       <a href="#cart">Cart</a>
 
           <Link style={{float: 'right'}} to='/login'>Log In/Log Out</Link>
-          <a href="#register" style={{float: 'right'}}>Register</a>
+          <Link style={{float: 'right'}} to='/register'>Register</Link>
       
       <span className="searchbar">
       <SearchBar addSearchQuery={props.addSearchQuery} allProducts={props.allProducts} />

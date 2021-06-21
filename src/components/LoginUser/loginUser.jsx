@@ -2,7 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import React, { Component } from 'react';
 
-class LoginRegister extends Component {
+class LoginUser extends Component {
     state = { 
         userName: '',
         password: ''
@@ -49,11 +49,11 @@ class LoginRegister extends Component {
                     <label>Password</label>
                     <input type="password" name="password" onChange={this.handleChange} value={this.state.password}/>
                     <br></br>
-                    <button type="submit">Register</button>     
+                    <button type="submit">Log In</button>     
                 </form>
             </div>
          );
     }
 }
  
-export default LoginRegister;
+export default LoginUser;

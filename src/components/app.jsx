@@ -11,8 +11,9 @@ import {
     Route,
 } from "react-router-dom";
 import jwtDecode from 'jwt-decode';
-import LoginRegister from './LoginRegister/loginRegister.jsx';
-import ProductForm from './NewProduct/newProduct';
+import LoginUser from './LoginUser/loginUser.jsx';
+import ProductForm from './NewProduct/newProduct.jsx';
+import RegisterUser from './RegisterUser/registerUser.jsx';
 
 class App extends Component {
     constructor(props) {  
@@ -160,8 +161,11 @@ class App extends Component {
                     <Route path="/add" component={ProductForm}>
                         <ProductForm addProductToState={this.addProductToState}></ProductForm>
                     </Route>
-                    <Route path="/login" component={LoginRegister}>
-                        <LoginRegister loginUser={this.loginUser} />
+                    <Route path="/register">
+                        <RegisterUser />
+                        </Route>
+                    <Route path="/login" component={LoginUser}>
+                        <LoginUser loginUser={this.loginUser} />
                     </Route>
                     <Route path="/detail">
                         <ProductDetail selectedProduct={this.state.selectedProduct} />                   
@@ -173,7 +177,8 @@ class App extends Component {
                     </Route>  
                     <Route path="/shoppingcart">
                         <ShoppingCart userCart={this.state.userCart} />    
-                    </Route>         
+                    </Route> 
+                   
                 </Switch>
                 </Router>  
             </div>
