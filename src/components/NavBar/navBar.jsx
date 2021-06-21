@@ -35,7 +35,7 @@ function NavBar(props) {
           </React.Fragment>
           }
           {props.user !== null &&
-          <Link style={{float: 'right'}}>Log Out</Link>
+          <Link style={{float: 'right'}} onClick={() => props.logout()}>Log Out</Link>
           }
       
       <span className="searchbar">

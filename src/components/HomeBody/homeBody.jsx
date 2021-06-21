@@ -11,7 +11,7 @@ const HomeBody = (props) => {
                 {props.user !== null &&
                 <h2>Welcome {props.user.username}!</h2>
                 }
-                {props.user == null &&
+                {props.user === null &&
                 <h2>Welcome Guest!</h2>
                 }
                 

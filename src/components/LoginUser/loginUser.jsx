@@ -1,5 +1,3 @@
-import axios from 'axios';
-import jwtDecode from 'jwt-decode';
 import React, { Component } from 'react';
 
 class LoginUser extends Component {
