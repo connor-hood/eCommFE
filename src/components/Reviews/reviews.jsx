@@ -6,7 +6,7 @@ const Reviews = (props) => {
     const { selectedProduct } = props;
 
     //reviews hook
-    const [reviews, setReviews] = useState(null);
+    const [reviews, setReviews] = useState();
 
     //mimics component did mount
     useEffect(() => {
@@ -17,25 +17,43 @@ const Reviews = (props) => {
         let query = `https://localhost:44394/api/review/${productId}`
         try{
             let response = await axios.get(query);
-            console.log(response);
             setReviews(response.data);
+            debugger;
         }
         catch(error){
             console.log(error);
         }
     }
 
+    const averageRating = (reviews) => {
+        if(reviews.length == 0){
+            return 0;
+        }
+        //            req          req
+        // reduce((accumulator, currentValue, index, array) => { ... }, initialValue)
+        let average = reviews.reduce((sum, review) => {
+            return sum + review.rating;
+        }, 0) / reviews.length;
+        return average;
+    }
+
     return(
         <React.Fragment>
             {reviews &&
                 <div>
+                    <div>Overall Rating: {averageRating(reviews)}</div>
+                    <br></br>
                     <h2>Reviews:</h2>
                     {reviews.map((review) => 
-                        <div>{review.text}</div>
+                        <React.Fragment>
+                            <span>{review.text}</span>
+                            <span> Rating: {review.rating}</span>
+                            <br></br>
+                        </React.Fragment>
                     )}
                 </div>
             }
-            {reviews == null &&
+            {!reviews &&
                 <div>No reviews to show</div>
             }
         </React.Fragment>

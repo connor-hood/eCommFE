@@ -5,6 +5,7 @@ import Reviews from '../Reviews/reviews.jsx';
 
 const ProductDetail = (props) => { 
     return(
+        //should change this to go through an api request(get product by id) to be able to rerender on refresh? 
         <React.Fragment>
             <div>
                 <img src={props.selectedProduct.imageURL} alt="placeholder" height="500" width="400"/>
