@@ -1,19 +1,11 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 import axios from 'axios';
+import './shoppingCart.css';
 
 const ShoppingCart = (props) => {
     const currentUser = props.currentUser;
     const userCart = props.userCart;
-    
-    const getProductName = async (productId) => {
-        let query = `https://localhost:44394/api/product/${productId}`;
-        let response = await axios.get(query);
-        let productById = response.data;
-        let name = productById.name;
-        console.log(name)
-        return name;
-    }
 
     if (currentUser == null) {
         return (
@@ -23,14 +15,18 @@ const ShoppingCart = (props) => {
         )
     } else if (userCart != null){
         return (
-            <div>
+            <table className='cart'>
                 {userCart.map((i) => 
-                    <div>
-                        {console.log(getProductName(i.productId))}
-                        <div>{i.productId}</div>
-                    </div>
+                    <tr>
+                        <td><img src={i.product.imageURL} alt="placeholder" height="150vw" width="150vw"/></td>
+                        <td>{i.product.name}</td>
+                        <td>{i.product.description}</td>
+                        <td>{i.product.price}</td>
+                        <td>{i.quantity}</td>
+                        <td><button>Delete</button></td>
+                    </tr>
                 )}
-            </div>
+            </table>
         );
     } else {
         return (
