@@ -5,23 +5,42 @@ import Reviews from '../Reviews/reviews.jsx';
 
 const ProductDetail = (props) => { 
     return(
-        //should change this to go through an api request(get product by id) to be able to rerender on refresh? 
-        <React.Fragment>
-            <div>
-                <img src={props.selectedProduct.imageURL} alt="placeholder" height="500" width="400"/>
-                <p>Name: {props.selectedProduct.name}</p>
-                <p>Description: {props.selectedProduct.description}</p>
-                <p>Type: {props.selectedProduct.type}</p>
-                <p>Age Rating: {props.selectedProduct.ageRating}</p>
-                <p>Genre: {props.selectedProduct.genre}</p>
-                <p>Price: ${props.selectedProduct.price}</p>
-                <button>Add to Cart!</button>
+        <div className="ProductDetailWrapper">
+            <div className="ProductImage"> 
+                <img src={props.selectedProduct.imageURL} alt="placeholder" height="400vw" width="100%"/>
             </div>
-
-            <br></br>
-
-            <Reviews selectedProduct={props.selectedProduct} />
-        </React.Fragment>
+            <div className="ProductAverageRating">
+                <h2>Rating: {props.selectedProduct.ageRating} </h2>
+            </div>
+            <div className="ProductName">
+                <h1>{props.selectedProduct.name}</h1>
+            </div>
+            <div className="ProductDescription">
+                <h2>Details:</h2>
+                <h2> {props.selectedProduct.description}</h2>
+            </div>
+            <div className="ProductStats">
+                    <div className="Type">
+                        <h3>Type:</h3><br/>
+                        <h2 className='StatBox'>{props.selectedProduct.type}</h2>
+                    </div>
+                    <div className="Age">
+                        <h3>Age Rating:</h3><br/>
+                        <h2 className='StatBox'>10+</h2>
+                    </div>
+                    <div className="Genre">
+                        <h3>Genre:</h3><br/>
+                        <h2 className='StatBox'>{props.selectedProduct.genre}</h2>
+                    </div>
+                    <div className="Price">
+                        <h3>Price:</h3><br/>
+                        <h2 className='StatBox'>${props.selectedProduct.price}</h2>
+                    </div>
+            </div>
+            <div className="AddToCart">
+                <button style={{width:'100%'}}>Add To Cart</button>
+            </div>
+        </div>
     );
 }
 
