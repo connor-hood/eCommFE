@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './productDetail.css';
-import Reviews from '../Reviews/reviews.jsx';
+//import Reviews from '../Reviews/reviews.jsx';
 
 const ProductDetail = (props) => { 
     return(
