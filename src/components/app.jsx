@@ -19,7 +19,7 @@ class App extends Component {
     constructor(props) {  
         super(props);
         this.state = {
-            currentUser: null,
+            currentUser: {},
             allProducts: [],
             selectedProduct: null,
             userCart: null,
@@ -35,13 +35,15 @@ class App extends Component {
         this.getAllProducts();
 
         const jwt = localStorage.getItem('token');
-        try{
+       // try{
             const user = jwtDecode(jwt);
             this.setState({currentUser: user});
+            debugger
+            console.log(this.state.currentUser)
             console.log("User logged in");
-        }catch{
+        //}catch{
             console.log("User not logged in");
-        }
+        //}
     }
 
     addSearchQuery = (query) => {
@@ -150,13 +152,15 @@ class App extends Component {
     }
 
     render(){
+        console.log("CurrentUser", this.state.currentUser)
         return(    
             <div className='MainWrapper'>
                 <div className='header' style={{backgroundColor: 'teal'}}>
                     <h1 className='title'>Tantalum Games</h1>
                 </div>
                 <Router>
-                <NavBar addSearchQuery={this.addSearchQuery} allProducts={this.state.allProducts} className="NavBar"/>
+                    {console.log(this.state.currentUser)}
+                <NavBar user={this.state.currentUser} addSearchQuery={this.addSearchQuery} allProducts={this.state.allProducts} className="NavBar"/>
                 <Switch>
                     <Route path="/add" component={ProductForm}>
                         <ProductForm addProductToState={this.addProductToState}></ProductForm>
@@ -172,7 +176,7 @@ class App extends Component {
                     </Route>
                     <Route path="/">
                         <div className='Body' style={{backgroundColor: 'grey'}}>
-                            <HomeBody searchQuery={this.state.searchQuery} filterProducts={this.filterProductsBySearch} allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
+                            <HomeBody user={this.state.currentUser} searchQuery={this.state.searchQuery} filterProducts={this.filterProductsBySearch} allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
                         </div>
                     </Route>  
                     <Route path="/shoppingcart">

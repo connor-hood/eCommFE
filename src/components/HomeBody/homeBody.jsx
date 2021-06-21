@@ -8,7 +8,13 @@ const HomeBody = (props) => {
     return(
         <div className="HomeWrapper">
             <div className="greeting">
-                <h2 className="welcome">Welcome Guest(user if signed in)!</h2>
+                {props.user !== null &&
+                <h2>Welcome {props.user.username}!</h2>
+                }
+                {props.user == null &&
+                <h2>Welcome Guest!</h2>
+                }
+                
             </div>
             <div className="cardGrid">
                 {filteredProducts.map((item) => 

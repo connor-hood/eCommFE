@@ -28,9 +28,15 @@ function NavBar(props) {
       </div> 
       <Link to='/add'>Add a Product!</Link>
       <a href="#cart">Cart</a>
-
-          <Link style={{float: 'right'}} to='/login'>Log In/Log Out</Link>
+          {props.user == null &&
+          <React.Fragment>
+          <Link style={{float: 'right'}} to='/login'>Log In</Link>
           <Link style={{float: 'right'}} to='/register'>Register</Link>
+          </React.Fragment>
+          }
+          {props.user !== null &&
+          <Link style={{float: 'right'}}>Log Out</Link>
+          }
       
       <span className="searchbar">
       <SearchBar addSearchQuery={props.addSearchQuery} allProducts={props.allProducts} />
