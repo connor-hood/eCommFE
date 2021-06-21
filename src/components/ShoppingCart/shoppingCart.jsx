@@ -10,7 +10,9 @@ const ShoppingCart = (props) => {
         let query = `https://localhost:44394/api/product/${productId}`;
         let response = await axios.get(query);
         let productById = response.data;
-        console.log(productById)
+        let name = productById.name;
+        console.log(name)
+        return name;
     }
 
     if (currentUser == null) {
@@ -24,6 +26,7 @@ const ShoppingCart = (props) => {
             <div>
                 {userCart.map((i) => 
                     <div>
+                        {console.log(getProductName(i.productId))}
                         <div>{i.productId}</div>
                     </div>
                 )}

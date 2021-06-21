@@ -89,6 +89,7 @@ class App extends Component {
             this.setState({currentUser: user});
             console.log(this.state.currentUser)
             console.log("User logged in");
+            this.getShoppingCart();
         }catch{
             console.log("User not logged in");
         }
@@ -123,14 +124,20 @@ class App extends Component {
     }
 
     // Shopping Cart Functions
-    getShoppingCart = async (currentUser) => {
-        let query = `https://localhost:44394/api/shoppingcart/${currentUser.id}`
-        let response = await axios.get(query);
-        this.setState({
-            userCart: response.data
-        }, () => {console.log(this.state.userCart)}
-        );
+    getShoppingCart = async () => {
+        try {
+            console.log('User ID: ',this.state.currentUser.id);
+            const query = `https://localhost:44394/api/shoppingcart/${this.state.currentUser.id}`
+            const response = await axios.get(query);
+            this.setState({
+                userCart: response.data
+            }, () => {console.log(this.state.userCart)}
+            );
+        } catch (error) {
+            console.log(error);
+        }
     }
+
 
     addShoppingCartItem = (userId, productId, quantity) => {
         let values = {
