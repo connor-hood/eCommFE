@@ -155,7 +155,8 @@ class App extends Component {
                     <h1 className='title'>Tantalum Games</h1>
                 </div>
                 <Router>
-                <NavBar />
+                <NavBar addSearchQuery={this.addSearchQuery} allProducts={this.state.allProducts} className="NavBar"/>
+                <Switch>
                     <Route path="/add" component={ProductForm}>
                         <ProductForm addProductToState={this.addProductToState}></ProductForm>
                     </Route>
@@ -173,7 +174,8 @@ class App extends Component {
                     <Route path="/shoppingcart">
                         <ShoppingCart userCart={this.state.userCart} />    
                     </Route>         
-                </Router>
+                </Switch>
+                </Router>  
             </div>
         );
     }
