@@ -175,15 +175,12 @@ class App extends Component {
                     <Route path="/detail">
                         <ProductDetail selectedProduct={this.state.selectedProduct} addToCart={()=>this.addShoppingCartItem(this.state.currentUser,this.state.selectedProduct,1)} />                   
                     </Route>
+                    <Route path="/cart" component={() => <ShoppingCart currentUser={this.state.currentUser} userCart={this.state.userCart} />} />
                     <Route path="/">
                         <div className='Body' style={{backgroundColor: 'grey'}}>
                             <HomeBody user={this.state.currentUser}searchQuery={this.state.searchQuery} filterProducts={this.filterProductsBySearch} allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>
                         </div>
                     </Route>  
-                    <Route path="/shoppingcart">
-                        <ShoppingCart userCart={this.state.userCart} />    
-                    </Route> 
-                   
                 </Switch>
                 </Router>  
             </div>
