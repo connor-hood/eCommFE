@@ -27,7 +27,7 @@ function NavBar(props) {
         </div>
       </div> 
       <Link to='/add'>Add a Product!</Link>
-      <a href="#cart">Cart</a>
+      <Link to='/cart'>Cart</Link>
           {props.user == null &&
           <React.Fragment>
           <Link style={{float: 'right'}} to='/login'>Log In</Link>
