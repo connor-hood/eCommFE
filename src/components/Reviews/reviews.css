@@ -1,0 +1,70 @@
+.ReviewWrapper{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    'review';
+    height: fit-content;
+}
+
+.reviewBody{
+    display: grid;
+    grid-area: review;
+}
+
+.userReview{
+    display: grid;
+    background-color: rgba(235, 235, 235, 0.398);
+    width: fit-content;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    grid-template-columns:  fit-content  auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    'user  rating ..'
+    'text text text';
+}
+
+.ReviewAuthor{
+    grid-area: user;
+    display: grid;
+    width: fit-content;
+    padding-left: 10px;
+
+}
+
+.StarRating{
+    grid-area: rating;
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    place-content: right;
+    width: fit-content;
+    justify-content: right;
+    padding-left: 10px;
+    padding-top: 15px;
+
+
+}
+
+.ReviewBody{
+    grid-area: text;
+    display: grid;
+}
+h4{
+    margin: 0%;
+    padding-top: 15px;
+    width: fit-content;
+}
+.star{
+    display: grid;
+    justify-self: right;}
+
+.star:hover{
+    background-color: darkcyanß;
+}
+
+p{
+    max-width: 60vw;
+    padding-left: 10px;
+}
