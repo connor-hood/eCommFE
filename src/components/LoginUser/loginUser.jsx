@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 
 class LoginUser extends Component {
     state = { 
@@ -14,16 +15,13 @@ class LoginUser extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault(); 
-        debugger;
         try{
               
             const userCredentials = {
                 userName: this.state.userName,
                 password: this.state.password
             };
-
             this.props.loginUser(userCredentials);
-            debugger;
         }
         catch(er){
             console.log("Error in LoginRegister")
@@ -47,7 +45,7 @@ class LoginUser extends Component {
                     <label>Password</label>
                     <input type="password" name="password" onChange={this.handleChange} value={this.state.password}/>
                     <br></br>
-                    <button type="submit">Log In</button>     
+                    <button type="submit">Log In</button>  
                 </form>
             </div>
          );

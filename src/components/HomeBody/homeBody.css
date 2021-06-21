@@ -2,7 +2,7 @@
     display: grid;
     background-image: linear-gradient(rgb(150, 164, 171),rgb(255, 255, 255));
     grid-template-columns: 100vw;
-    grid-template-rows: 3em 50vh;
+    grid-template-rows: 3em 45vh;
     grid-template-areas:
     "welcome"
     "body";

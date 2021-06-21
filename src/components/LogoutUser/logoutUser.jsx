@@ -4,12 +4,11 @@ const LogoutUser = (props) => {
     
     const LogoutUser = () => {
         localStorage.removeItem("token");
-        window.location.href = "/"
+        window.location.href = "/";
     }
     
     return(
         <div>
-            
         </div>
     )
 }
