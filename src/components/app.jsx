@@ -149,17 +149,13 @@ class App extends Component {
     }
 
     render(){
-        const user = this.state.currentUser;
-        return(
-            <Router>
-                {user && 
-                <NavBar addSearchQuery={this.addSearchQuery} allProducts={this.state.allProducts} className="NavBar"/>
-                }
+        return(    
             <div className='MainWrapper'>
                 <div className='header' style={{backgroundColor: 'teal'}}>
                     <h1 className='title'>Tantalum Games</h1>
                 </div>
-                <Switch>
+                <Router>
+                <NavBar />
                     <Route path="/add" component={ProductForm}>
                         <ProductForm addProductToState={this.addProductToState}></ProductForm>
                     </Route>
@@ -177,9 +173,8 @@ class App extends Component {
                     <Route path="/shoppingcart">
                         <ShoppingCart userCart={this.state.userCart} />    
                     </Route>         
-                </Switch>
+                </Router>
             </div>
-            </Router>
         );
     }
 }
