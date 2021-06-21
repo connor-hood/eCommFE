@@ -4,6 +4,7 @@ import './productDetail.css';
 import Reviews from '../Reviews/reviews.jsx';
 
 const ProductDetail = (props) => { 
+    console.log(props)
     return(
         <div className="ProductDetailWrapper">
             <div className="ProductImage"> 
@@ -37,9 +38,11 @@ const ProductDetail = (props) => {
                         <h2 className='StatBox'>${props.selectedProduct.price}</h2>
                     </div>
             </div>
+            {props.currentUser != null &&
             <div className="AddToCart">
-                <button style={{width:'100%'}} onClick={()=>props.AddToCart()}>Add To Cart</button>
+                <button style={{width:'100%'}} onClick={()=>props.addToCart(props.currentUser.id,props.selectedProduct.productId,1)}>Add To Cart</button>
             </div>
+            }
         </div>
     );
 }
