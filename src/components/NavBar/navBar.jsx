@@ -14,9 +14,12 @@ function NavBar(props) {
           <div id="link1" class="dItem" href="#">Video Games
 
             <div class="dropdown-two">
-              <div class="dItem" id="file" href="#">Fighting</div>
-              <div class="dItem" id="file" href="#">Shooting</div>
-              <div class="dItem" id="file" href="#">Arcade</div>
+              <div onClick={() => props.addSearchQuery('fighting')} class="dItem" id="file" href="#">Fighting</div>
+              <div onClick={() => props.addSearchQuery('shooting')} class="dItem" id="file" href="#">Shooting</div>
+              <div onClick={() => props.addSearchQuery('arcade')} class="dItem" id="file" href="#">Arcade</div>
+              <div onClick={() => props.addSearchQuery('sandbox')} class="dItem" id="file" href="#">Sandbox</div>
+              <div onClick={() => props.addSearchQuery('rpg')} class="dItem" id="file" href="#">RPG</div>
+              <div onClick={() => props.addSearchQuery('strategy')} class="dItem" id="file" href="#">Strategy</div>
             </div>
           </div>
           <div class="dItem" href="#">Board Games</div>
@@ -25,12 +28,12 @@ function NavBar(props) {
       </div> 
       <Link to='/add'>Add a Product!</Link>
       <a href="#cart">Cart</a>
-      
-          <a href="#login" style={{float: 'right'}}>Log In/Log Out</a>
+
+          <Link style={{float: 'right'}} to='/login'>Log In/Log Out</Link>
           <a href="#register" style={{float: 'right'}}>Register</a>
       
       <span className="searchbar">
-      <SearchBar />
+      <SearchBar addSearchQuery={props.addSearchQuery} allProducts={props.allProducts} />
       </span>
     </div>
     )

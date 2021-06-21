@@ -1,10 +1,12 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import './productDetail.css';
+import Reviews from '../Reviews/reviews.jsx';
 
-const ProductDetail = (props) => {
-
-    if(props.selectedProduct !== null){
-        return(
+const ProductDetail = (props) => { 
+    return(
+        //should change this to go through an api request(get product by id) to be able to rerender on refresh? 
+        <React.Fragment>
             <div>
                 <img src={props.selectedProduct.imageURL} alt="placeholder" height="500" width="400"/>
                 <p>Name: {props.selectedProduct.name}</p>
@@ -15,11 +17,12 @@ const ProductDetail = (props) => {
                 <p>Price: ${props.selectedProduct.price}</p>
                 <button>Add to Cart</button>
             </div>
-        );
-    }
-    else{
-        return("Uh oh...error");
-    }
+
+            <br></br>
+
+            <Reviews selectedProduct={props.selectedProduct} />
+        </React.Fragment>
+    );
 }
 
 export default ProductDetail;

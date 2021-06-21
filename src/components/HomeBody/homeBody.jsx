@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 
 const HomeBody = (props) => {
     const handleSelect = props.handleSelect;
+    const filteredProducts = props.filterProducts(props.allProducts, props.searchQuery)
     return(
         <div className="HomeWrapper">
             <div className="greeting">
                 <h2 className="welcome">Welcome Guest(user if signed in)!</h2>
             </div>
             <div className="cardGrid">
-                {props.allProducts.map((item) => 
+                {filteredProducts.map((item) => 
                     <div className="productCard">
                         <h3>{item.name}</h3>
                     <div className="product image">
@@ -25,9 +26,6 @@ const HomeBody = (props) => {
                         <Link to="/detail">
                             <button type="submit" onClick={() => handleSelect(item)}>Details</button>
                         </Link>
-                        {/* <button type="button" onClick= {() => handleSelect(item)}>
-                        <a href="#productDetail"> {item.name} detail</a>
-                        </button>                      */}
                     </div>
                 </div>
                 )}

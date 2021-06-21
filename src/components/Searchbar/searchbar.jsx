@@ -1,34 +1,36 @@
 import React, { Component} from 'react';
 import './searchbar.css';
 
-
 class SearchBar extends Component {
     constructor(props) {
         super(props);
         
         this.state = {
-            search:'',
-            searchResults: [],
+            searchQuery: ''
         }
     }
     
-    handleChange = (event) =>{
-        
+    handleChange = (event) =>{ 
         this.setState({
-        search: event.target.value
+            [event.target.name]: event.target.value
         });
-        console.log(this.state.search)
+    }
+
+    handleSearch = (event) => {
+        event.preventDefault();
+        const searchTerm = {
+            searchQuery: this.state.searchQuery
         }
+        this.props.addSearchQuery(searchTerm.searchQuery.toLowerCase());
+    }
 
     render() { 
         return (
             <div className='S.body' >
-                <form className="S.SearchBar" >
-                <input className="S.search" type="text" name="searchbar" placeholder="Search.." onChange={(event) => this.handleChange(event)}>
-            </input>
-            <button type="submit">Search</button>
+                <form onSubmit={(event) => this.handleSearch(event)} className="S.SearchBar" >
+                    <input className="S.search" type="text" name="searchQuery" placeholder="Search.." value={this.state.searchQuery} onChange={(event) => this.handleChange(event)} />
+                    <button type="submit">Search</button>
                 </form>
-
             </div>
         );
     }
