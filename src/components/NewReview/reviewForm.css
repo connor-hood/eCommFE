@@ -1,0 +1,28 @@
+.formWrapper{
+    height: auto;
+    width: auto;
+    
+}
+
+.NewReview{
+    box-shadow: 0 0 20px rgb(155, 155, 155);
+    width: 60vw;
+    padding-left:  10px;
+}
+
+input{
+    height: 100px;
+    width: 55vw;
+}
+
+h3{
+    margin: 0%;
+}
+
+button{
+    background-color: rgb(79, 79, 79);
+    border-radius: 8px;
+    color: white;
+    justify-self: right;
+    place-self: right;
+}
