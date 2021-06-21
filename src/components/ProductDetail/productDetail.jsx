@@ -15,6 +15,7 @@ const ProductDetail = (props) => {
                 <p>Age Rating: {props.selectedProduct.ageRating}</p>
                 <p>Genre: {props.selectedProduct.genre}</p>
                 <p>Price: ${props.selectedProduct.price}</p>
+                <button>Add to Cart!</button>
             </div>
 
             <br></br>
