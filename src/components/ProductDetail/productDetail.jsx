@@ -10,7 +10,7 @@ const ProductDetail = (props) => {
                 <img src={props.selectedProduct.imageURL} alt="placeholder" height="400vw" width="100%"/>
             </div>
             <div className="ProductAverageRating">
-                <h2>Rating: {props.selectedProduct.ageRating} </h2>
+                <h2>Rating:  </h2>
             </div>
             <div className="ProductName">
                 <h1>{props.selectedProduct.name}</h1>
@@ -26,7 +26,7 @@ const ProductDetail = (props) => {
                     </div>
                     <div className="Age">
                         <h3>Age Rating:</h3><br/>
-                        <h2 className='StatBox'>10+</h2>
+                        <h2 className='StatBox'>{props.selectedProduct.ageRating}</h2>
                     </div>
                     <div className="Genre">
                         <h3>Genre:</h3><br/>
@@ -38,7 +38,7 @@ const ProductDetail = (props) => {
                     </div>
             </div>
             <div className="AddToCart">
-                <button style={{width:'100%'}}>Add To Cart</button>
+                <button style={{width:'100%'}} onClick={()=>props.AddToCart()}>Add To Cart</button>
             </div>
         </div>
     );

@@ -172,7 +172,7 @@ class App extends Component {
                         <LoginUser loginUser={this.loginUser} />
                     </Route>
                     <Route path="/detail">
-                        <ProductDetail selectedProduct={this.state.selectedProduct} />                   
+                        <ProductDetail selectedProduct={this.state.selectedProduct} addToCart={()=>this.addShoppingCartItem(this.state.currentUser,this.state.selectedProduct,1)} />                   
                     </Route>
                     <Route path="/">
                         <div className='Body' style={{backgroundColor: 'grey'}}>
