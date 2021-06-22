@@ -33,7 +33,7 @@ const ShoppingCart = (props) => {
                         <td>{i.product.description}</td>
                         <td>{i.quantity}</td>
                         <td>${i.product.price}</td>
-                        <td><button>Delete</button></td>
+                        <td><button onClick={() => props.deleteFromCart(currentUser.id,i.product.productId)}>Delete</button></td>
                     </tr>
                 )}
                 </tbody>
