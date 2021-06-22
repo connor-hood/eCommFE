@@ -4,7 +4,7 @@ import './reviews.css';
 
 const Reviews = (props) => {
     // destructuring
-    const { selectedProduct } = props;
+    const { selectedProduct, currentUser } = props;
 
     //reviews hook
     const [reviews, setReviews] = useState(null);
@@ -62,16 +62,17 @@ const Reviews = (props) => {
                         <div className="userReview">
                     
                             <div className="ReviewAuthor"> 
-                                <h4>User {review.id}</h4> 
+                                <h4>User {review.User}</h4> 
                             </div>
                             <div className="StarRating">
-                                {review.rating}
+                                {review.rating}/5 Stars
+                                {/* <img className={"star star-" + (review.rating)} src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/> */}
 
-                                    <img className="star star-1"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                                    {/* <img className="star star-1"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
                                     <img className="star star-2"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
                                     <img className="star star-3"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
                                     <img className="star star-4"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
-                                    <img className="star star-5"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                                    <img className="star star-5"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/> */}
                             </div >
 
                             <div className="ReviewBody">

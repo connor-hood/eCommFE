@@ -34,7 +34,15 @@ class App extends Component {
     componentDidMount = () => {
         this.getAllProducts();
 
-        
+        const jwt = localStorage.getItem('token');  
+        try{
+            const user = jwtDecode(jwt);
+            this.setState({currentUser: user});
+            console.log("User logged in");
+            this.getShoppingCart();
+        }catch{
+            console.log("User not logged in");
+        }
     }
 
     addSearchQuery = (query) => {
@@ -83,16 +91,6 @@ class App extends Component {
 
     getUser = async (token) => {
         let response = await axios.get('https://localhost:44394/api/examples/user', {headers:{"Authorization" : `Bearer ${token}`}}).then(({ response }) => response);
-        const jwt = localStorage.getItem('token');  
-        try{
-            const user = jwtDecode(jwt);
-            this.setState({currentUser: user});
-            console.log(this.state.currentUser)
-            console.log("User logged in");
-            this.getShoppingCart();
-        }catch{
-            console.log("User not logged in");
-        }
     }
 
     getAllProducts = async () => {

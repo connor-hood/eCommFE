@@ -61,10 +61,8 @@ h4{
     justify-self: right;
 }
 
-
-
 .star:hover{
-    background-color: darkcyan;
+    color: yellow;
 }
 
 p{
