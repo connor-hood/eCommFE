@@ -7,7 +7,7 @@ const Reviews = (props) => {
     const { selectedProduct } = props;
 
     //reviews hook
-    const [reviews, setReviews] = useState();
+    const [reviews, setReviews] = useState(null);
 
     //mimics component did mount
     useEffect(() => {
@@ -38,32 +38,37 @@ const Reviews = (props) => {
         return average;
     }
 
+    console.log("review hook", reviews)
+    if(reviews !== null){
     return(
-        <div className="ReviewWrapper">
-            
+        // react won't let me conditionally render anything here
+        <div className="ReviewWrapper">       
             <div className="reviewBody">
-            <h4>Reviews ({reviews.length} total Reviews)</h4>
-            {reviews.map((review) =>
-                
-            <div className="userReview">
-                
-                <div className="ReviewAuthor"> 
-                    <h4>User {review.Id}</h4> 
-                </div>
-                    <div className="StarRating">
-                        {review.rating}
-                        <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
-                        <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
-                        <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
-                    </div >
-                <div className="ReviewBody">
-                    <p>{review.text} </p>
-                </div>
-             </div>
-             )}
-             </div>
-         </div>
-        );
+                <h4>Reviews ({reviews.length} total Reviews)</h4>           
+                    {reviews.map((review) =>
+                    
+                        <div className="userReview">
+                    
+                            <div className="ReviewAuthor"> 
+                                <h4>User {review.Id}</h4> 
+                            </div>
+                            <div className="StarRating">
+                                {review.rating}
+                                    <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                                    <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                                    <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                            </div >
+                            <div className="ReviewBody">
+                                <p>{review.text} </p>
+                            </div>
+                        </div>
+                    )}
+            </div>
+        </div>
+    );}
+    else{
+        return <h2>No reviews</h2>
     }
+}
      
 export default Reviews;

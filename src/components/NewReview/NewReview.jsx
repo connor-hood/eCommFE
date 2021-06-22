@@ -65,7 +65,7 @@ class NewReview extends Component {
                         {()=>this.SetRating(1)}
                     </div> 
                     <div>
-                        <input placeholder= "Type Your Review Here" type="text" name="name" onChange={(event) => this.handleChange(event)}/>
+                        <input className="review-input" placeholder= "Type Your Review Here" type="text" name="name" onChange={(event) => this.handleChange(event)}/>
                     </div>
 
                     <button type="submit" >Add Review</button>

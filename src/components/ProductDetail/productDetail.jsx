@@ -2,9 +2,11 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './productDetail.css';
 import Reviews from '../Reviews/reviews.jsx';
+import NewReview from '../NewReview/NewReview.jsx';
 
 const ProductDetail = (props) => { 
     return(
+        <React.Fragment>
         <div className="ProductDetailWrapper">
             <div className="ProductImage"> 
                 <img src={props.selectedProduct.imageURL} alt="placeholder" height="400vw" width="100%"/>
@@ -40,7 +42,11 @@ const ProductDetail = (props) => {
             <div className="AddToCart">
                 <button style={{width:'100%'}} onClick={()=>props.AddToCart()}>Add To Cart</button>
             </div>
+            
         </div>
+        <NewReview />
+        <Reviews selectedProduct={props.selectedProduct} />
+        </React.Fragment>
     );
 }
 
