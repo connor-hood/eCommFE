@@ -131,25 +131,35 @@ class App extends Component {
             const response = await axios.get(query);
             this.setState({
                 userCart: response.data
-            }, () => {console.log(this.state.userCart)}
+            }, () => {console.log('user cart', this.state.userCart)}
             );
         } catch (error) {
             console.log(error);
         }
     }
 
-
-    addShoppingCartItem = (userId, productId, quantity) => {
+    addShoppingCartItem = async (userId, productId, quantity) => {
         let values = {
-            UserId: userId,
             ProductId: productId,
             Quantity: quantity
         };
-        async function postData() {
-            await axios.post(`https://localhost:44394/api/shoppingcart`, values)
+        try {
+            await axios.post(`https://localhost:44394/api/shoppingcart/${userId}`, values)
+        } catch (err) {
+            console.log(err)
+        } finally {
+            this.getShoppingCart();
         }
-        postData();
-        this.getShoppingCart();
+    }
+
+    deleteFromCart = async (userId,productId) => {
+        try {
+            await axios.delete(`https://localhost:44394/api/shoppingcart/${userId}/${productId}`);
+        } catch (err) {
+            console.log(err)
+        } finally {
+            this.getShoppingCart();
+        }
     }
 
     addProductToState = (item) => {
@@ -180,9 +190,9 @@ class App extends Component {
                         <LoginUser loginUser={this.loginUser} />
                     </Route>
                     <Route path="/detail">
-                        <ProductDetail selectedProduct={this.state.selectedProduct} addToCart={()=>this.addShoppingCartItem(this.state.currentUser,this.state.selectedProduct,1)} />                   
+                        <ProductDetail selectedProduct={this.state.selectedProduct} addToCart={this.addShoppingCartItem} currentUser={this.state.currentUser} />                   
                     </Route>
-                    <Route path="/cart" component={() => <ShoppingCart currentUser={this.state.currentUser} userCart={this.state.userCart} />} />
+                    <Route path="/cart" component={() => <ShoppingCart currentUser={this.state.currentUser} userCart={this.state.userCart} deleteFromCart={this.deleteFromCart} />} />
                     <Route path="/">
                         <div className='Body' style={{backgroundColor: 'grey'}}>
                             <HomeBody user={this.state.currentUser}searchQuery={this.state.searchQuery} filterProducts={this.filterProductsBySearch} allProducts={this.state.allProducts} handleSelect={this.handleSelect}/>

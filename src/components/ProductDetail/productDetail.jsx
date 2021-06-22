@@ -5,6 +5,7 @@ import Reviews from '../Reviews/reviews.jsx';
 import NewReview from '../NewReview/NewReview.jsx';
 
 const ProductDetail = (props) => { 
+    console.log(props)
     return(
         <React.Fragment>
         <div className="ProductDetailWrapper">
@@ -39,10 +40,11 @@ const ProductDetail = (props) => {
                         <h2 className='StatBox'>${props.selectedProduct.price}</h2>
                     </div>
             </div>
+            {props.currentUser != null &&
             <div className="AddToCart">
-                <button style={{width:'100%'}} onClick={()=>props.AddToCart()}>Add To Cart</button>
+                <button style={{width:'100%'}} onClick={()=>props.addToCart(props.currentUser.id,props.selectedProduct.productId,1)}>Add To Cart</button>
             </div>
-            
+            }
         </div>
         <NewReview />
         <Reviews selectedProduct={props.selectedProduct} />
