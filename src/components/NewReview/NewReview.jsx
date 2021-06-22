@@ -5,11 +5,13 @@ import './reviewForm.css';
 class NewReview extends Component {
     constructor(props) {
         super(props);
+        debugger;
+        this.getInfo(props);
             this.state = {
                 rating: 0,
                 text: "",
-                productId: props.selectedProduct.id,
-                userId: "",
+                productId: props.selectedProduct.productId,
+                userId: props.currentUser.id,
              }
         }
     
@@ -28,9 +30,10 @@ class NewReview extends Component {
     handleSubmit = async(event) => {
         event.preventDefault();
 
+        debugger;
         const newReview = {
                 rating: this.state.rating,
-                text: this.state.text,
+                text: this.state.text
         }
         try{
             await axios.post(`https://localhost:44394/api/Review`, newReview);
@@ -39,10 +42,15 @@ class NewReview extends Component {
             console.log(er);
         }
      };
+     getInfo = (props) => {
+         console.log(props.currentUser);
+         console.log(props.selectedProduct)
+     }
 
 
     render() {
         return (           
+            
            <div className= "formWrapper" >
                
                 <form className="NewReview" onSubmit={(event) => this.handleSubmit(event)} >

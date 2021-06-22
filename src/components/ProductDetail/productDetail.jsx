@@ -51,7 +51,9 @@ const ProductDetail = (props) => {
         </div>
         
         <Reviews selectedProduct={props.selectedProduct} />
-        <NewReview selectedProduct={props.selectedProduct} currentUser={props.currentUser}/>
+        {props.currentUser !== null &&
+            <NewReview selectedProduct={props.selectedProduct} currentUser={props.currentUser}/>
+        }
         </React.Fragment>
     );
 }
