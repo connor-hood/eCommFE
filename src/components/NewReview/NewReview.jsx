@@ -10,7 +10,7 @@ class NewReview extends Component {
             this.state = {
                 rating: 0,
                 text: "",
-                productId: props.selectedProduct.productId,
+                productId: parseInt(props.selectedProduct.productId),
                 userId: props.currentUser.id,
              }
         }
@@ -32,21 +32,30 @@ class NewReview extends Component {
 
         debugger;
         const newReview = {
-                rating: this.state.rating,
-                text: this.state.text
+                rating: parseInt(this.state.rating),
+                text: this.state.text,
+                productId: parseInt(this.props.selectedProduct.productId),
+                userId: this.props.currentUser.id
         }
         try{
-            await axios.post(`https://localhost:44394/api/Review`, newReview);
+            axios.post(`https://localhost:44394/api/review`, newReview);
         }
         catch(er){
             console.log(er);
         }
+        finally{
+            this.setState({
+                rating: 0,
+                text: "",
+                productId: parseInt(this.props.selectedProduct.productId),
+                userId: this.props.currentUser.id,
+            })
+        }
      };
      getInfo = (props) => {
-         console.log(props.currentUser);
-         console.log(props.selectedProduct)
+         console.log("user", props.currentUser);
+         console.log("product", props.selectedProduct)
      }
-
 
     render() {
         return (           
@@ -61,13 +70,13 @@ class NewReview extends Component {
                     </div>
                     <div className="SelectRating">
                         <label for="rating">Rate this product: </label>
-                            <select name="rating">
-                                <option onChange={(event) => this.handleChange(event)} value={5}>5</option>
-                                <option onChange={(event) => this.handleChange(event)} value={4}>4</option>
-                                <option onChange={(event) => this.handleChange(event)} value={3}>3</option>
-                                <option onChange={(event) => this.handleChange(event)} value={2}>2</option>
-                                <option onChange={(event) => this.handleChange(event)} value={1}>1</option>
-
+                            <select name="rating" value={this.state.value} onChange={(event) => this.handleChange(event)}>
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value={5} >5</option>
+                                <option value={4} >4</option>
+                                <option value={3} >3</option>
+                                <option value={2} >2</option>
+                                <option value={1} >1</option>
                             </select>
                         {/* <img src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" className="star" style={{height: '18px'}} onclick={(event)=>this.setRating(event, 1)}/>
                         <img src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" className="star" style={{height: '18px'}} onclick={(event)=>this.setRating(event, 2)}/>
@@ -77,7 +86,7 @@ class NewReview extends Component {
                     </div> 
                     <div>
                         
-                        <input className="review-input" placeholder= "Type Your Review Here" type="text" name="name" onChange={(event) => this.handleChange(event)}/>
+                        <input className="review-input" placeholder= "Type Your Review Here" type="text" name="text" value={this.state.text} onChange={(event) => this.handleChange(event)}/>
                     </div>
 
                     <button type="submit" >Add Review</button>
