@@ -5,6 +5,9 @@ import Reviews from '../Reviews/reviews.jsx';
 import NewReview from '../NewReview/NewReview.jsx';
 
 const ProductDetail = (props) => { 
+
+    
+
     console.log(props)
     return(
         <React.Fragment>
@@ -13,7 +16,7 @@ const ProductDetail = (props) => {
                 <img src={props.selectedProduct.imageURL} alt="placeholder" height="400vw" width="100%"/>
             </div>
             <div className="ProductAverageRating">
-                <h2>Rating:  </h2>
+                <h2></h2>
             </div>
             <div className="ProductName">
                 <h1>{props.selectedProduct.name}</h1>
@@ -46,8 +49,9 @@ const ProductDetail = (props) => {
             </div>
             }
         </div>
-        <NewReview />
+        
         <Reviews selectedProduct={props.selectedProduct} />
+        <NewReview />
         </React.Fragment>
     );
 }

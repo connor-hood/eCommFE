@@ -38,10 +38,22 @@ const Reviews = (props) => {
         return average;
     }
 
+    const renderStars = (review) => {
+        if(review.rating == 5){
+
+        }
+    }
+
     console.log("review hook", reviews)
     if(reviews !== null){
     return(
         // react won't let me conditionally render anything here
+
+        // use the average rating and mess with the stars. also the user can't give a rating
+        <React.Fragment>
+        <div >
+                <h2>Overall Rating: {averageRating(reviews)}/5 </h2>
+            </div>
         <div className="ReviewWrapper">       
             <div className="reviewBody">
                 <h4>Reviews ({reviews.length} total Reviews)</h4>           
@@ -50,14 +62,18 @@ const Reviews = (props) => {
                         <div className="userReview">
                     
                             <div className="ReviewAuthor"> 
-                                <h4>User {review.Id}</h4> 
+                                <h4>User {review.id}</h4> 
                             </div>
                             <div className="StarRating">
                                 {review.rating}
-                                    <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
-                                    <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
-                                    <img className="star "src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+
+                                    <img className="star star-1"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                                    <img className="star star-2"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                                    <img className="star star-3"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                                    <img className="star star-4"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
+                                    <img className="star star-5"src="https://www.freeiconspng.com/uploads/white-star-icon-26.png" alt="star" style={{height: '18px'}}/>
                             </div >
+
                             <div className="ReviewBody">
                                 <p>{review.text} </p>
                             </div>
@@ -65,6 +81,7 @@ const Reviews = (props) => {
                     )}
             </div>
         </div>
+        </React.Fragment>
     );}
     else{
         return <h2>No reviews</h2>

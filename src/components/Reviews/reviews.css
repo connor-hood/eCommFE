@@ -58,10 +58,13 @@ h4{
 }
 .star{
     display: grid;
-    justify-self: right;}
+    justify-self: right;
+}
+
+
 
 .star:hover{
-    background-color: darkcyanß;
+    background-color: darkcyan;
 }
 
 p{
